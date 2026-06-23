@@ -896,6 +896,52 @@
   text-decoration: none !important;
 }
 
+/* ----- Pane-samenvattingen op de complete-pagina (contact / billing) ----- */
+
+/* De pane-wrapper zelf neutraliseren zodat losse kaarten netjes staan */
+.checkout-pane-completion-message {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.checkout-pane-completion-message .checkout-complete {
+  margin: 0 auto 22px;
+}
+
+/* Elke samenvatting (Contact information, Billing information) als kaart */
+.checkout-pane-completion-message fieldset {
+  background: #fff;
+  border: none;
+  border-left: 4px solid var(--fl-rood);
+  border-radius: 14px;
+  box-shadow: var(--fl-shadow-sm);
+  padding: 20px 24px;
+  margin: 0 0 18px;
+}
+
+.checkout-pane-completion-message fieldset > legend,
+.checkout-pane-completion-message fieldset .fieldset-legend {
+  color: var(--fl-zwart) !important;
+  font-weight: 800 !important;
+  font-size: 1.05rem !important;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--fl-grijs-licht);
+  width: 100%;
+}
+
+.checkout-pane-completion-message fieldset .fieldset-wrapper {
+  color: var(--fl-zwart);
+  line-height: 1.7;
+}
+
+.checkout-pane-completion-message fieldset .address .organization {
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   .checkout-complete {
     margin: 24px 16px;
