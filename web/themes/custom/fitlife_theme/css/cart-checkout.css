@@ -751,3 +751,71 @@
     transform: none !important;
   }
 }
+
+/* =========================================================
+   8. BEVESTIGINGSPAGINA (/checkout/N/complete)
+   ========================================================= */
+
+.checkout-completion-message,
+.commerce-checkout-completion-message,
+.checkout-complete {
+  max-width: 640px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: var(--fl-radius);
+  box-shadow: var(--fl-shadow-md);
+  padding: 48px 40px;
+  text-align: center;
+  color: var(--fl-zwart);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* Groen vinkje bovenaan */
+.checkout-completion-message::before,
+.commerce-checkout-completion-message::before,
+.checkout-complete::before {
+  content: "\2713";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #fff;
+  font-size: 46px;
+  font-weight: 800;
+  box-shadow: 0 8px 22px rgba(39, 174, 96, .35);
+}
+
+/* Links in het bericht → rood en vet */
+.checkout-completion-message a,
+.commerce-checkout-completion-message a,
+.checkout-complete a {
+  color: var(--fl-rood) !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.checkout-completion-message a:hover,
+.commerce-checkout-completion-message a:hover,
+.checkout-complete a:hover {
+  text-decoration: underline;
+}
+
+/* Betaalinstructies-blok onder het bericht */
+.checkout-complete__payment-instructions {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 2px solid var(--fl-grijs-licht);
+  text-align: left;
+}
+
+.checkout-complete__payment-instructions h2 {
+  color: var(--fl-zwart);
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+}
