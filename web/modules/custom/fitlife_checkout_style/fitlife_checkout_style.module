@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * FitLife Checkout Styling.
+ *
+ * Laadt de winkelmandje/checkout-CSS op elke pagina en zorgt dat de
+ * bevestigingstemplate (commerce-checkout-completion-message) uit dit
+ * module gebruikt wordt, ongeacht het actieve thema.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function fitlife_checkout_style_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'fitlife_checkout_style/cart-checkout';
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ *
+ * Laat de completion-message-template uit dit module komen, zodat de
+ * override ook werkt als er geen custom thema actief is.
+ */
+function fitlife_checkout_style_theme_registry_alter(&$theme_registry) {
+  if (isset($theme_registry['commerce_checkout_completion_message'])) {
+    $path = \Drupal::service('extension.list.module')->getPath('fitlife_checkout_style');
+    $theme_registry['commerce_checkout_completion_message']['path'] = $path . '/templates';
+  }
+}
