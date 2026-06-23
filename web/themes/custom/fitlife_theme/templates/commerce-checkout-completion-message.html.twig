@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme override voor de checkout-bevestigingsboodschap (FitLife).
+ *
+ * Beschikbare variabelen:
+ * - order_entity: De order-entity.
+ * - message: De bevestigingsboodschap.
+ * - payment_instructions: De betaalinstructies, indien aanwezig.
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="checkout-complete">
+  <div class="checkout-complete__badge" aria-hidden="true">&#10003;</div>
+
+  <h2 class="checkout-complete__heading">{{ 'Bedankt voor je bestelling!'|t }}</h2>
+  <p class="checkout-complete__subtitle">{{ 'Je bestelling is succesvol geplaatst.'|t }}</p>
+
+  {% if order_entity %}
+    <div class="checkout-complete__ordernr">
+      <span class="checkout-complete__ordernr-label">{{ 'Bestelnummer'|t }}</span>
+      <span class="checkout-complete__ordernr-value">#{{ order_entity.getOrderNumber() }}</span>
+    </div>
+  {% endif %}
+
+  <div class="checkout-complete__message">
+    {{- message -}}
+  </div>
+
+  {% if payment_instructions %}
+    <div class="checkout-complete__payment-instructions">
+      <h3>{{ 'Betaalinstructies'|t }}</h3>
+      {{ payment_instructions }}
+    </div>
+  {% endif %}
+
+  <div class="checkout-complete__actions">
+    <a href="{{ path('<front>') }}" class="checkout-complete__btn checkout-complete__btn--primary">
+      {{ 'Verder winkelen'|t }}
+    </a>
+  </div>
+</div>
