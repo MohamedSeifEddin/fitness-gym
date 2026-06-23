@@ -756,8 +756,6 @@
    8. BEVESTIGINGSPAGINA (/checkout/N/complete)
    ========================================================= */
 
-.checkout-completion-message,
-.commerce-checkout-completion-message,
 .checkout-complete {
   max-width: 640px;
   margin: 40px auto;
@@ -771,36 +769,81 @@
   line-height: 1.75;
 }
 
-/* Groen vinkje bovenaan */
-.checkout-completion-message::before,
-.commerce-checkout-completion-message::before,
-.checkout-complete::before {
-  content: "\2713";
+/* Groen vinkje bovenaan (element uit de template) */
+.checkout-complete__badge {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 84px;
   height: 84px;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2ecc71, #27ae60);
   color: #fff;
   font-size: 46px;
   font-weight: 800;
+  line-height: 1;
   box-shadow: 0 8px 22px rgba(39, 174, 96, .35);
 }
 
+/* Kop + ondertitel */
+.checkout-complete__heading {
+  color: var(--fl-zwart) !important;
+  font-weight: 800;
+  font-size: 1.7rem;
+  margin: 0 0 6px;
+  letter-spacing: -.4px;
+}
+
+.checkout-complete__subtitle {
+  color: #6b6b80;
+  font-size: 1rem;
+  margin: 0 0 24px;
+}
+
+/* Bestelnummer-badge */
+.checkout-complete__ordernr {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 24px;
+  padding: 12px 22px;
+  background: var(--fl-grijs-licht);
+  border: 1px solid var(--fl-grijs-rand);
+  border-radius: 999px;
+}
+
+.checkout-complete__ordernr-label {
+  color: #6b6b80;
+  font-weight: 600;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+.checkout-complete__ordernr-value {
+  color: var(--fl-rood);
+  font-weight: 800;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Het eigenlijke bericht */
+.checkout-complete__message {
+  color: var(--fl-zwart);
+}
+
+.checkout-complete__message p:last-child {
+  margin-bottom: 0;
+}
+
 /* Links in het bericht → rood en vet */
-.checkout-completion-message a,
-.commerce-checkout-completion-message a,
 .checkout-complete a {
   color: var(--fl-rood) !important;
   font-weight: 700;
   text-decoration: none;
 }
 
-.checkout-completion-message a:hover,
-.commerce-checkout-completion-message a:hover,
 .checkout-complete a:hover {
   text-decoration: underline;
 }
@@ -813,9 +856,57 @@
   text-align: left;
 }
 
-.checkout-complete__payment-instructions h2 {
+.checkout-complete__payment-instructions h3 {
   color: var(--fl-zwart);
   font-weight: 800;
   font-size: 1.15rem;
   margin: 0 0 12px;
+}
+
+/* Actieknoppen */
+.checkout-complete__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--fl-grijs-licht);
+}
+
+.checkout-complete__btn {
+  display: inline-block;
+  border-radius: 30px;
+  font-weight: 700;
+  padding: 13px 30px;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all var(--fl-transition);
+}
+
+.checkout-complete__btn--primary {
+  background: linear-gradient(135deg, var(--fl-rood), var(--fl-rood-donker));
+  color: #fff !important;
+  box-shadow: var(--fl-shadow-rood);
+}
+
+.checkout-complete__btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(230, 57, 70, .42);
+  text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+  .checkout-complete {
+    margin: 24px 16px;
+    padding: 36px 24px;
+  }
+
+  .checkout-complete__actions {
+    flex-direction: column;
+  }
+
+  .checkout-complete__btn {
+    width: 100%;
+  }
 }
