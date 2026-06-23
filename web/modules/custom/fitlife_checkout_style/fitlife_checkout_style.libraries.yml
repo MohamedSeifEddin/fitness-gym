@@ -1,0 +1,4 @@
+cart-checkout:
+  css:
+    theme:
+      css/cart-checkout.css: {}
