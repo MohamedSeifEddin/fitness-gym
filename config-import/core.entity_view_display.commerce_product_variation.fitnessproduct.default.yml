@@ -1,0 +1,27 @@
+uuid: f0c51f1f-8694-4689-9eba-72b363803815
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.fitnessproduct
+    - field.field.commerce_product_variation.fitnessproduct.attribute_smaak
+id: commerce_product_variation.fitnessproduct.default
+targetEntityType: commerce_product_variation
+bundle: fitnessproduct
+mode: default
+content:
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+hidden:
+  attribute_smaak: true
+  list_price: true
+  price: true
+  product_id: true
+  sku: true
+
