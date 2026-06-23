@@ -1,0 +1,5 @@
+name: FitLife Checkout Styling
+type: module
+description: 'Voegt de FitLife winkelmandje/checkout-styling en de bevestigingstemplate toe. Werkt met elk actief thema (o.a. bootstrap5).'
+core_version_requirement: ^10 || ^11
+package: FitLife
